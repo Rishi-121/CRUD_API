@@ -1,0 +1,21 @@
+{
+  "name": "crudjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "rishi@webhunt",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.6",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
