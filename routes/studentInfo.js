@@ -3,6 +3,7 @@ const router = express.Router();
 const Student= require('../models/students');
 
 
+//Gives details of all the student in collection
 router.get('/' , async(req, res) => {
     try{
         const students=await Student.find();
@@ -14,6 +15,7 @@ router.get('/' , async(req, res) => {
 
 });
 
+//Give details of a particular student
 router.get('/:id' , async(req, res) => {
     try{
         const student=await Student.findById(req.params.id);
@@ -25,6 +27,7 @@ router.get('/:id' , async(req, res) => {
 
 });
 
+//Insert a student document in the StudenDB collection 
 router.post('/' , async(req,res) =>{
 
     const student = new Student({
@@ -43,7 +46,7 @@ router.post('/' , async(req,res) =>{
     }
 });
 
-//Update
+//Update a particular student document
 router.patch('/:id' , async(req,res) =>{
     try{
         const student = await Student.findById(req.params.id);
@@ -56,6 +59,15 @@ router.patch('/:id' , async(req,res) =>{
     catch(err){
         req.send("Error");
     }
+});
+
+//Delete a particular student document in the database
+router.delete('/:id' , async(req,res) =>{
+   Student.findByIdAndDelete(req.params.id).then((doc)=>{
+       res.send("Deleted");
+   }).catch((err)=>{
+       res.send("Error");
+   });
 });
 
 module.exports = router;
